@@ -79,6 +79,9 @@ public class BSPTree {
     }
     
     public int retornaBranchLivre(){
+        //A ideia dessa funcao nao é aplicar uma Traversal
+        //mas sim testar de forma mais simples se o nodo atual tem filhos
+        //Isso tende a economizar tempo com testes
         //Retorna 0 se não há branchs livres
         //Retorna 1 se o branch de tras esta livre
         //Retorna 2 se o branch da direita esta livre
