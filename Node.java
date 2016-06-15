@@ -1,27 +1,18 @@
 package bsp;
-//Essa classe eu criei apenas caso nao haja necessidade de criar uma arvore inteira para testar casos, cria-se uma instancia de Nodo
+
 /**
  *
  * @author nautec
  */
-public class Node {
+public class Node<T> {
     
-    Poligono poligono;
+    public Node esquerda;
+    public Node direita;
+    public int indice;
 
     public Node() {
     }
-
-    public Node(Poligono poligono) {
-        this.poligono = poligono;
-    }
-
-    public Poligono getPoligono() {
-        return poligono;
-    }
-
-    public void setPoligono(Poligono poligono) {
-        this.poligono = poligono;
-    }
+    
     
     
     
