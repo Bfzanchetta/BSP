@@ -53,28 +53,23 @@ public class BSPTree {
         //}else atras = null; 
     }
     
-    public void montaArvoreRecursivamente(ArrayList<Poligono> lista){
+    public void montaArvoreRecursivamente(ArrayList<Poligono> lista){  
+        //TESTAR CASO BASE COM APENAS DOIS SEGMENTOS ADICONADOS NO ARRAY
+        //SE PASSAR, CRIAR UM CASO COM MAIS ARRAYS E VER ARVORE MONTADA
+        //DEPOIS IMPLEMENTAR A TRAVERSAL
         if(lista.isEmpty()){
             return;
             }
         Random r = new Random();
         int a = r.nextInt(lista.size());
+        System.out.println(a);
         //Pega o conteudo da posicao r do array
-        if(this.raiz == null){
-            
-            lista.remove(a);
+        for(int i=0; i<lista.size();i++){
+            System.out.println("ITERACAO"+i +" COM CONTEUDO"+ lista.get(i));
         }
-        else{
+        lista.remove(a);
             //Verifica se esta a frente ou atras
-            if(){
-                this.frente = lista.get(a);
-                lista.remove(a);
-            }
-            else if(){
-                this.tras = new Poligono(lista.get(a));
-                lista.remove(a);
-            }
-        }
+        
         montaArvoreRecursivamente(lista);
     }
     
@@ -101,3 +96,4 @@ public class BSPTree {
         }
     }
 }
+
