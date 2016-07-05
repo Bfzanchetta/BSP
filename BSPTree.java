@@ -17,6 +17,30 @@ public class BSPTree {
    
     BSPTree frente,atras;
     Poligono raiz;
+
+    public BSPTree getFrente() {
+        return frente;
+    }
+
+    public void setFrente(BSPTree frente) {
+        this.frente = frente;
+    }
+
+    public BSPTree getAtras() {
+        return atras;
+    }
+
+    public void setAtras(BSPTree atras) {
+        this.atras = atras;
+    }
+
+    public Poligono getRaiz() {
+        return raiz;
+    }
+
+    public void setRaiz(Poligono raiz) {
+        this.raiz = raiz;
+    }
     
     public BSPTree(ArrayList<Poligono> poligono){
         ArrayList<Poligono> polFrente,polAtras;
@@ -27,7 +51,6 @@ public class BSPTree {
         if(poligono.isEmpty()){
             return;
         }
-       
         for(int i =0;i < poligono.size();i++){
             Poligono temp = poligono.get(i);
             if(temp.equals(raiz))poligono.remove(i);
@@ -44,7 +67,6 @@ public class BSPTree {
                 polAtras.add(temp);
             }
         }
-        
         //if(!polFrente.isEmpty()){
         //    frente = new BSPTree(polFrente);
         //}else frente = null;
@@ -53,7 +75,7 @@ public class BSPTree {
         //}else atras = null; 
     }
     
-    public void montaArvoreRecursivamente(ArrayList<Poligono> lista){  
+    public void montaArvore(ArrayList<Poligono> lista){  
         //TESTAR CASO BASE COM APENAS DOIS SEGMENTOS ADICONADOS NO ARRAY
         //SE PASSAR, CRIAR UM CASO COM MAIS ARRAYS E VER ARVORE MONTADA
         //DEPOIS IMPLEMENTAR A TRAVERSAL
@@ -62,15 +84,29 @@ public class BSPTree {
             }
         Random r = new Random();
         int a = r.nextInt(lista.size());
-        System.out.println(a);
-        //Pega o conteudo da posicao r do array
-        for(int i=0; i<lista.size();i++){
-            System.out.println("ITERACAO"+i +" COM CONTEUDO"+ lista.get(i));
+        int b = r.nextInt(lista.size());
+        while(b == a){
+            b = r.nextInt(lista.size());
         }
+        Poligono aux = new Poligono(lista.get(b*lista.size()).retaSuperior.linha);
+        //Pega o conteudo da posicao r do array
+        //for(int i=0; i<lista.size();i++){
+        //    System.out.println("ITERACAO"+i +" COM CONTEUDO"+ lista.get(i));
+        if(lista.get(a*lista.size()).retaSuperior.getLado(aux.retaSuperior.linha.getX1(), aux.retaSuperior.linha.getY1()) == -1){
+            //ATRAS
+        }
+        else if(lista.get(a*lista.size()).retaSuperior.getLado(aux.retaSuperior.linha.getX1(), aux.retaSuperior.linha.getY1()) == 0){
+            //COLINEAR
+        }
+        else if(lista.get(a*lista.size()).retaSuperior.getLado(aux.retaSuperior.linha.getX1(), aux.retaSuperior.linha.getY1()) == 1){
+            //FRENTE
+        }
+        else if(lista.get(a*lista.size()).retaSuperior.getLado(aux.retaSuperior.linha.getX1(), aux.retaSuperior.linha.getY1()) == 2){
+            //CORTA
+        }
+        //}
         lista.remove(a);
             //Verifica se esta a frente ou atras
-        
-        montaArvoreRecursivamente(lista);
     }
     
     public int retornaBranchLivre(){
